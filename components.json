@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "new-york",
+  "rsc": false,
+  "tsx": true,
+  "tailwind": {
+    "config": "packages/archipelago-ui/tailwind.config.js",
+    "css": "packages/archipelago-ui/src/styles/global.css",
+    "baseColor": "gray",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "packages/archipelago-ui/src/components",
+    "utils": "packages/archipelago-ui/src/lib/utils",
+    "ui": "packages/archipelago-ui/src/components/ui",
+    "lib": "packages/archipelago-ui/src/lib",
+    "hooks": "packages/archipelago-ui/src/hooks"
+  },
+  "iconLibrary": "lucide"
+}

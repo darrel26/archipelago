@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@packages/archipelago-ui": ["packages/archipelago-ui/src/index.ts"],
+      "@packages/archipelago-ui/*": ["libs/archipelago-ui/src/*"]
+    }
+  }
+}
