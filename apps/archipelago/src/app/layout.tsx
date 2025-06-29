@@ -1,4 +1,5 @@
 import './global.css';
+import { Navigation, ThemeProvider } from '@archipelago/ui';
 
 export const metadata = {
   title: 'Welcome to archipelago',
@@ -11,8 +12,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
+    <>
+      <html lang="en" suppressHydrationWarning>
+        <body>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <Navigation />
+            {children}
+          </ThemeProvider>
+        </body>
+      </html>
+    </>
   );
 }
