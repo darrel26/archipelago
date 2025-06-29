@@ -1,4 +1,9 @@
-import { NavItem } from './interfaces/nav-items';
+import type { NavItem, NavLogo } from '@archipelago/ui';
+
+export const NAV_LOGO: NavLogo = {
+  href: '/',
+  url: 'Archipelago',
+};
 
 export const NAV_ITEMS: NavItem[] = [
   {

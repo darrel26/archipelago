@@ -1,13 +1,18 @@
 'use client';
 
 import Link from 'next/link';
-import { NAV_ITEMS } from '../../../lib/constants';
 import { Button } from '../shadcn/button';
 import { Moon, Search, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
+import type { NavItem, NavLogo } from '../../../lib/types/nav';
 
-export function Navigation() {
+interface NavigationProps {
+  logo: NavLogo;
+  items: NavItem[];
+}
+
+export function Navigation({ logo, items }: NavigationProps) {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -15,15 +20,16 @@ export function Navigation() {
 
   if (!mounted) return null;
   return (
-    <header className="supports-backdrop-blur:bg-background/60 sticky top-0 w-full bg-background/95 backdrop-blur z-50">
-      <div className="flex h-16 items-center justify-between mx-6">
-        <div className="left-nav">
-          <Link href="/">
-            <span className="font-bold">Archipelago</span>
-          </Link>
-        </div>
+    <header className="fixed top-4 w-full">
+      <div className="flex items-center justify-between gap-4 rounded-full border dark:border-none bg-background/70 px-6 py-2 shadow-md dark:shadow-[0_5px_15px_rgba(0,0,0,0.2)] backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <Link
+          href={logo.href}
+          className=" text-base font-semibold tracking-tight"
+        >
+          {logo.url}
+        </Link>
         <nav className="hidden md:flex gap-6">
-          {NAV_ITEMS.map((item) => (
+          {items.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -33,9 +39,10 @@ export function Navigation() {
             </Link>
           ))}
         </nav>
-        <div className="right-nav flex items-center gap-2">
-          <Button variant="ghost" size="icon" aria-label="Toggle theme">
-            <Search />
+
+        <div className="flex items-center gap-2">
+          <Button variant="ghost" size="icon" aria-label="Search">
+            <Search className="h-4 w-4" />
           </Button>
           <Button
             variant="ghost"
@@ -44,9 +51,9 @@ export function Navigation() {
             aria-label="Toggle theme"
           >
             {theme === 'dark' ? (
-              <Sun className="h-5 w-5" />
+              <Sun className="h-4 w-4" />
             ) : (
-              <Moon className="h-5 w-5" />
+              <Moon className="h-4 w-4" />
             )}
           </Button>
         </div>

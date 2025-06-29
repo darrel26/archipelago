@@ -1,3 +1,4 @@
+import { NAV_LOGO, NAV_ITEMS } from '../utils/constant/nav';
 import './global.css';
 import { Navigation, ThemeProvider } from '@archipelago/ui';
 
@@ -14,9 +15,9 @@ export default function RootLayout({
   return (
     <>
       <html lang="en" suppressHydrationWarning>
-        <body>
+        <body className="relative left-1/2 z-50 -translate-x-1/2 w-[95%] md:w-3/4">
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <Navigation />
+            <Navigation logo={NAV_LOGO} items={NAV_ITEMS} />
             {children}
           </ThemeProvider>
         </body>
