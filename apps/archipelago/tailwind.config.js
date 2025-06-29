@@ -14,11 +14,14 @@ module.exports = {
   content: [
     './{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}',
     '!./{src,pages,components,app}/**/*.{stories,spec}.{ts,tsx,js,jsx,html}',
-    '../../packages/archipelago-ui/src/**/*.{ts,tsx}'
+    '../../packages/archipelago-ui/src/**/*.{ts,tsx}',
     //     ...createGlobPatternsForDependencies(__dirname)
   ],
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
 };
